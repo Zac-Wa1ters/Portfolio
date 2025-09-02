@@ -1,0 +1,70 @@
+@font-face {
+  font-family: "FixedsysExcelsiorIIIb";
+  src: url("fonts/FixedsysExcelsiorIIIb.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(0, 69, 11);
+  background-image: url("images/background.png");
+
+  background-size: cover;
+}
+
+img {
+  display: block;
+  margin: auto;
+  padding: 5%;
+}
+
+h1.title {
+  font-family: "FixedsysExcelsiorIIIb";
+  font-size: xx-large;
+  text-align: justify;
+
+
+}
+
+about.grid_container {
+  
+}
+
+ul {
+  position: fixed;
+  list-style-type: none;
+  float: left;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  text-align: Left;
+  padding: 10px;
+  color: #87f1b4;
+  font-size: xx-large;
+  font-weight: normal;
+  font-family: "FixedsysExcelsiorIIIb";
+}
+
+li a:hover {
+  color: white;
+  background-color: #1dd767;
+}
+
+.active {
+  background-color: rgb(3, 101, 25, 0.8);
+}
