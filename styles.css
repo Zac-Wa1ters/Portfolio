@@ -6,19 +6,6 @@
   font-display: swap;
 }
 
-@media (max-width: 768px) {
-  .about-section {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-image {
-    margin-bottom: 1rem;
-    width: 100%;
-    align-self: center;
-  }
-}
-
 html,
 body {
   margin: 0;
@@ -59,39 +46,116 @@ body {
 }
 
 .about-image {
-  width: 250px;
+  width: 25vw;
   height: auto;
-  border-radius: 12px;
+  border-radius: 10px;
+  margin-top: 5%;
 }
 
 .about-text {
   flex: 1;
-  font-size: 1.3rem;
+  font-size: 1.75rem;
   color: #87f1b4;
   font-family: "FixedsysExcelsiorIIIb";
 }
 
-.skills-section {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 2rem;
-  margin: 2rem auto;
-  max-width: 1000px;
-  padding: 1rem;
+.skills {
+  text-align: center;
+  margin-top: 20px;
+  justify-self: center;
 }
 
-.skills-image {
-  width: 125;
-  height: auto;
-  border-radius: 12px;
+.skills h1 {
+  font-family: "FixedsysExcelsiorIIIb";
+  display: inline-block;
+  font-size: 3rem;
+  text-align: Center;
+  color: #87f1b4;
+  background-color: darkgreen;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.logos_container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+
+.logos_container > img {
+  width: auto;
+  height: 100px;
+  display: block;
+  border-radius: 10px;
+  background-color: #1dd767;
+  padding: 5px;
+}
+.skills-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 .skills-text {
-  flex: 1;
+  flex: auto;
   font-size: 1.3rem;
   color: #87f1b4;
   font-family: "FixedsysExcelsiorIIIb";
+}
+
+.projects {
+  text-align: center;
+  margin-top: 50px;
+  justify-self: center;
+}
+
+.projects h1 {
+  font-family: "FixedsysExcelsiorIIIb";
+  display: inline-block;
+  font-size: 3rem;
+  text-align: Center;
+  color: #87f1b4;
+  background-color: darkgreen;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.projects h2 {
+  font-family: "FixedsysExcelsiorIIIb";
+  display: inline-block;
+  font-size: 3rem;
+  text-align: Center;
+  color: #87f1b4;
+  background-color: darkgreen;
+}
+
+.projects p {
+  display: inline-block;
+  font-size: 1.75rem;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #87f1b4;
+  font-family: "FixedsysExcelsiorIIIb";
+}
+
+.projects_container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 2rem;
+  row-gap: 1.5rem;
+  max-width: 80%;
+  margin: 2rem auto;
+}
+
+.projects_container .project_name {
+  grid-column: 1;
+}
+
+.projects_container .project_desc {
+  grid-column: 2;
 }
 
 ul {
@@ -100,6 +164,13 @@ ul {
   padding: 0;
   margin: 0;
   list-style-type: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 17, 3, 0.8);
+  z-index: 1000;
 }
 
 li {
@@ -109,6 +180,7 @@ li {
 li a {
   display: block;
   text-align: Left;
+  text-decoration: none;
   padding: 10px;
   color: #87f1b4;
   font-size: 2rem;
@@ -117,10 +189,35 @@ li a {
 }
 
 li a:hover {
+  text-decoration: underline;
+  text-decoration: overline;
   color: white;
   background-color: #1dd767;
 }
 
 .active {
   background-color: rgb(3, 101, 25, 0.8);
+}
+
+@media (max-width: 768px) {
+  .title {
+    padding-top: 10%;
+  }
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image {
+    margin-bottom: 1rem;
+    width: 100%;
+    align-self: center;
+  }
+  .logos_container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .logos img {
+    flex: 0 0 100px;
+  }
 }
