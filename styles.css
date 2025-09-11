@@ -256,7 +256,4 @@ li a:hover {
   .main-nav {
     max-width: fit-content;
   }
-  .main-nav > ul > li > a {
-    font-size: 2rem;
-  }
 }
