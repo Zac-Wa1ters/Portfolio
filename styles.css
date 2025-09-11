@@ -253,7 +253,8 @@ li a:hover {
   .contact_container {
     grid-template-columns: 1fr 1fr;
   }
-  .main-nav {
-    max-width: fit-content;
+
+  .main-nav > ul > li > a {
+    font-size: 1.5rem;
   }
 }
