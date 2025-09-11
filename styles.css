@@ -138,6 +138,20 @@ body {
   grid-column: 2;
 }
 
+.projects_container > .project_name > a {
+  font-family: "FixedsysExcelsiorIIIb";
+  display: inline-flex;
+  font-size: 3rem;
+  text-align: Center;
+  color: #87f1b4;
+  background-color: darkgreen;
+}
+
+.projects_container > .project_name > a:hover {
+  color: white;
+  background-color: #1dd767;
+}
+
 .contact {
   text-align: center;
   margin-top: 20px;
@@ -193,7 +207,6 @@ li a {
 }
 
 li a:hover {
-  text-decoration: underline;
   text-decoration: overline;
   color: white;
   background-color: #1dd767;
@@ -239,5 +252,8 @@ li a:hover {
 
   .contact_container {
     grid-template-columns: 1fr 1fr;
+  }
+  .main-nav > ul > li > a {
+    font-size: 2rem;
   }
 }
