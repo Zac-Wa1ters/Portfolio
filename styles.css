@@ -131,6 +131,7 @@ body {
 }
 
 .projects_container .project_name {
+  margin-top: 50px;
   grid-column: 1;
 }
 
@@ -145,11 +146,13 @@ body {
   text-align: Center;
   color: #87f1b4;
   background-color: darkgreen;
+  text-decoration: none;
 }
 
 .projects_container > .project_name > a:hover {
   color: white;
   background-color: #1dd767;
+  text-decoration: overline;
 }
 
 .contact {
