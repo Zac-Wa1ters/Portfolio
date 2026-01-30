@@ -1,0 +1,48 @@
+@font-face {
+  font-family: "FixedsysExcelsiorIIIb";
+  src: url("../fonts/FixedsysExcelsiorIIIb.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+.terminal {
+  padding: 2rem;
+  text-shadow:
+    0 0 5px rgba(51,255,51,0.6),
+    0 0 10px rgba(51,255,51,0.4);
+}
+
+.terminal-input {
+  background: none;
+  border: none;
+  color: inherit;
+  outline: none;
+  width: 100%;
+}
+.terminal-input {
+  font-family: "FixedsysExcelsiorIIIb", monospace;
+}
+
+/* =========================
+   GLOBAL TERMINAL CURSOR
+   ========================= */
+#terminal-cursor {
+  position: absolute;
+  color: #87f1b4;
+  font-family: inherit;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+#terminal-cursor.blink {
+  animation: cursor-blink 1s steps(1) infinite;
+}
+
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}

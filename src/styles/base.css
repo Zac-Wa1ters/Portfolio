@@ -1,0 +1,286 @@
+/* =========================
+FONT
+========================= */
+@font-face {
+    font-family: "FixedsysExcelsiorIIIb";
+    src: url("../../fonts/FixedsysExcelsiorIIIb.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* =========================
+GLOBAL BASE
+========================= */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    color: #87f1b4;
+    font-family: "FixedsysExcelsiorIIIb";
+    background-color: rgb(0, 17, 0);
+    background-image: url("../../images/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* =========================
+TYPOGRAPHY
+========================= */
+
+p,
+h1,
+h2,
+h3,
+figcaption {
+    line-height: 1.2;
+}
+
+
+h1,
+h2,
+h3 {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+    font-family: "FixedsysExcelsiorIIIb";
+    color: #87f1b4;
+    padding: 0 5px;
+}
+
+h1 { font-size: 4rem; margin-top: 50px;}
+h2 { font-size: 3rem; }
+h3 { font-size: 2rem; }
+
+
+p {
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+/* =========================
+LAYOUT SECTIONS
+========================= */
+.title {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.about-me-title {
+    text-align: center;
+}
+
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+    padding: 1rem;
+}
+
+.about-image {
+    
+    width: 25vw;
+    height: 35vw;
+    border-radius: 5px;
+}
+
+.about-text {
+    flex: 1;
+    font-size: 1.75rem;
+}
+
+/* =========================
+SKILLS
+========================= */
+.skills,
+.projects,
+.contact {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.logos_container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    max-width: 80%;
+    margin: 1rem auto;
+}
+
+
+
+.logos {
+    height: 100px;
+    padding: 10px;
+}
+
+.logos_container figure img {
+    padding: 20px;
+    background-color: #006400;
+
+}
+
+.logos_container figure figcaption {
+    font-size: 2rem;
+}
+
+/* =========================
+PROJECTS
+========================= */
+.projects_container {
+    align-items: start;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    max-width: 80%;
+    margin: 2rem auto;
+}
+
+.project_name{
+    align-self: center;
+}
+
+.project_name a {
+    font-size: 3rem;
+    color: #87f1b4;
+    text-decoration: none;
+}
+
+.project_name a:hover {
+    color: white;
+    background-color: #1dd767;
+    text-decoration: overline;
+}
+
+.project_desc a {
+    color: #87f1b4;
+    text-decoration: underline;
+}
+
+.project_desc a:hover {
+    color: white;
+}
+
+/* =========================
+CONTACT
+========================= */
+.contact_container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    max-width: 80%;
+    margin: 1rem auto 200px;
+}
+
+.contact_container img.logos {
+    height: 140px;
+    padding: 20px;
+    background-color: #006400;
+}
+
+.contact_container h3 {
+    font-size: 2.25rem;
+    margin-top: 0.75rem;
+}
+
+
+.contact_container figure figcaption {
+    font-size: 2rem;
+}
+
+/* =========================
+NAV (FALLBACK NAV)
+========================= */
+.fallback-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    z-index: 1000;
+}
+
+.fallback-nav a {
+    padding: 10px;
+    font-size: 2rem;
+    text-decoration: none;
+    color: #87f1b4;
+}
+
+.fallback-nav a:hover {
+    color: white;
+    background-color: #1dd767;
+    text-decoration: overline;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+.about-section {
+    flex-direction: column;
+    text-align: center;
+}
+
+.about-image {
+    width: 100%;
+    height: auto;
+}
+
+.logos_container {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.projects_container {
+    grid-template-columns: 1fr;
+}
+
+.contact_container {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.fallback-nav a {
+    font-size: 1.5rem;
+}
+}
+
+/* =========================
+   FIGURE CAPTIONS (SKILLS & CONTACT)
+   ========================= */
+figure {
+    text-align: center;
+}
+
+figure h3 {
+    width: auto;
+    margin: 0.5rem auto 0;
+}
+
+/* CONTACT LINKS RESET */
+.contact_container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* CONTACT ICON LABELS */
+.contact_container h3 {
+  background-color: transparent;
+  padding: 0;
+  width: auto;
+}
+
+/* OPTIONAL HOVER POLISH */
+.contact_container figure:hover img {
+  background-color: #1dd767;
+}
+
+.contact_container figure:hover h3 {
+  color: white;
+}

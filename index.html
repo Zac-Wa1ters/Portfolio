@@ -1,155 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zachary Walters' Portfolio</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="portfolio">
-      <header class="site-header">
-        <nav class="main-nav">
-          <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <!--<li><a href="#link">Links</a></li>-->
-          </ul>
-        </nav>
-      </header>
-      <div class="title">
-        <name>Zachary Walters</name>
-      </div>
-      <div id="about"></div>
-      <div class="about-me-title">
-        <h1>About Me</h1>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <title>Zachary Walters | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./src/styles/base.css" />
+  <link rel="stylesheet" href="./src/styles/terminal.css" />
+  <link rel="stylesheet" href="./src/styles/transitions.css" />
+</head>
+<body class="scanlines">
+  <nav class="fallback-nav">
+    <a href="#/" data-link>Home</a>
+    <a href="#/about" data-link>About</a>
+    <a href="#/skills" data-link>Skills</a>
+    <a href="#/projects" data-link>Projects</a>
+    <a href="#/contact" data-link>Contact</a>
+  </nav>
 
-      <div class="about-section">
-        <img
-          src="images/Me.jpg"
-          alt="Zachary Walters photo"
-          class="about-image"
-        />
+  <main id="app" class="terminal"></main>
+  <div id="terminal-cursor" aria-hidden="true">▮</div>
 
-        <div class="about-text">
-          <p>
-            I'm Senior Robotics Technician for Starship Technologies from
-            Oxford, MS. I’ve spent the past few years working hands-on with
-            autonomous systems and robotic platforms, ensuring their reliability
-            and performance in real-world environments. I’m currently expanding
-            my skill set as a Software Developer Apprentice at Base Camp Coding
-            Academy. Here, I’m diving into full-stack development, learning to
-            build responsive applications, manage databases, and write clean,
-            efficient code in a collaborative, agile environment.
-          </p>
-        </div>
-      </div>
-      <div id="skills"></div>
-      <div class="skills">
-        <h1>My Skills</h1>
-        <div class="logos_container">
-          <figure>
-            <img src="images/html.png" alt="HTML" class="logos" />
-            <figcaption><h3>HTML</h3></figcaption>
-          </figure>
 
-          <figure>
-            <img src="images/css.png" alt="CSS" class="logos" />
-            <figcaption><h3>CSS</h3></figcaption>
-          </figure>
-          <figure>
-            <img src="images/python.png" alt="Python" class="logos" />
-            <figcaption><h3>Python</h3></figcaption>
-          </figure>
-          <figure>
-            <img src="images/vscode.png" alt="VS Code" class="logos" />
-            <figcaption><h3>VS Code</h3></figcaption>
-          </figure>
-          <figure>
-            <img src="images/git.png" alt="GitHub" class="logos" />
-            <figcaption><h3>GitHub</h3></figcaption>
-          </figure>
-
-          <figure>
-            <img src="images/java.png" alt="Java" class="logos" />
-            <figcaption><h3>Java</h3></figcaption>
-          </figure>
-          <figure>
-            <img src="images/react.png" alt="React" class="logos" />
-            <figcaption><h3>React</h3></figcaption>
-          </figure>
-          <figure>
-            <img src="images/sql.png" alt="SQL" class="logos" />
-            <figcaption><h3>SQL</h3></figcaption>
-          </figure>
-          <figure>
-            <img src="images/springboot.png" alt="Springboot" class="logos" />
-            <figcaption><h3>Spring Boot</h3></figcaption>
-          </figure>
-          <figure>
-            <img src="images/django.png" alt="Django" class="logos" />
-            <figcaption><h3>Django</h3></figcaption>
-          </figure>
-        </div>
-      </div>
-      <div id="projects"></div>
-      <div class="projects">
-        <h1>Projects</h1>
-        <div class="projects_container">
-          <div class="project_name">
-            <a href="https://github.com/Zac-Wa1ters/Idno-Care" target="_blank"
-              >Idno Simulator</a
-            >
-          </div>
-          <div class="project_desc">
-            <p>
-              In this Python based project I worked on a team with two other
-              people to program a game based taking care of little a fictional
-              creature called an Idno. You named your Idno and had to make sure
-              all their needs were met.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div id="contact"></div>
-
-      <div class="contact">
-        <h1>Contact Me</h1>
-
-        <div class="contact_container">
-          <figure>
-            <a href="mailto:zwalters@basecampcodingacademy.org" target="_blank">
-              <img src="images/mail.png" alt="E-Mail" class="logos" />
-              <figcaption><h3>E-Mail</h3></figcaption></a
-            >
-          </figure>
-
-          <figure>
-            <a
-              href="https://linkedin.com/in/zachary-s-walters/"
-              target="_blank"
-            >
-              <img src="images/linkedin.png" alt="LinkedIn" class="logos" />
-              <figcaption><h3>Linked In</h3></figcaption></a
-            >
-          </figure>
-          <figure>
-            <a href="https://github.com/Zac-Wa1ters/" target="_blank">
-              <img src="images/github.png" alt="Github" class="logos" />
-              <figcaption><h3>Github</h3></figcaption></a
-            >
-          </figure>
-          <figure>
-            <a href="Resume" target="_blank">
-              <img src="images/resume.png" alt="Resume" class="logos" />
-              <figcaption><h3>Resume</h3></figcaption></a
-            >
-          </figure>
-        </div>
-      </div>
-    </div>
-  </body>
+  <script type="module" src="./src/main.js"></script>
+</body>
 </html>
