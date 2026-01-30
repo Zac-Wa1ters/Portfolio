@@ -60,6 +60,48 @@ p {
 }
 
 /* =========================
+   FOOTER
+   ========================= */
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  padding: 0.5rem 1rem;
+
+  font-size: 1.25rem;
+  background-color: rgba(0, 17, 3, 0.85);
+  color: #87f1b4;
+
+  z-index: 900;
+
+  text-shadow: 0 0 5px rgba(135, 241, 180, 0.4);
+}
+
+.site-footer a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#app {
+  padding-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    font-size: 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+
+
+/* =========================
 LAYOUT SECTIONS
 ========================= */
 .title {
