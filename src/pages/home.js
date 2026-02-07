@@ -5,17 +5,17 @@ export async function Home(container) {
     {
       tag: "h1",
       text: "Zachary Walters",
-      speed: 40,
+      speed: 20,
     },
     {
       tag: "p",
       text: "Senior Robotics Technician | Software Developer Apprentice",
-      delay: 300,
+      delay: 150,
     },
     {
       tag: "p",
       text: "Use the navbar to get to know me and what I can do.",
-      delay: 300,
+      delay: 150,
     },
   ]);
 

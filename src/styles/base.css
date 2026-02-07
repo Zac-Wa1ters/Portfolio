@@ -124,10 +124,10 @@ LAYOUT SECTIONS
 }
 
 .about-image {
-    
     width: 25vw;
     height: 35vw;
-    border-radius: 5px;
+    border-radius: 50px;
+    
 }
 
 .about-text {
@@ -178,6 +178,7 @@ PROJECTS
     align-items: start;
     display: grid;
     grid-template-columns: 1fr 2fr;
+    grid-auto-rows: auto;
     gap: 2rem;
     max-width: 80%;
     margin: 2rem auto;
@@ -195,7 +196,7 @@ PROJECTS
 
 .project_name a:hover {
     color: white;
-    background-color: #1dd767;
+    background-color: #1dd76747;
     text-decoration: overline;
 }
 
@@ -206,6 +207,7 @@ PROJECTS
 
 .project_desc a:hover {
     color: white;
+    background-color: #1dd76747;
 }
 
 /* =========================
@@ -247,6 +249,7 @@ NAV (FALLBACK NAV)
     display: flex;
     justify-content: space-around;
     z-index: 1000;
+    background: #001900cb;
 }
 
 .fallback-nav a {
@@ -258,7 +261,7 @@ NAV (FALLBACK NAV)
 
 .fallback-nav a:hover {
     color: white;
-    background-color: #1dd767;
+    background-color: #1dd76747;
     text-decoration: overline;
 }
 

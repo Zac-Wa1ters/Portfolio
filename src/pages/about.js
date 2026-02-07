@@ -36,7 +36,7 @@ my skill set as a Software Developer Apprentice at Base Camp Coding
 Academy. Here, I’m diving into full-stack development, learning to
 build responsive applications, manage databases, and write clean,
 efficient code in a collaborative, agile environment.`,
-      speed: 15
+      speed: 10
         }
   ]);
 
