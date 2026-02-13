@@ -265,6 +265,12 @@ NAV (FALLBACK NAV)
     text-decoration: overline;
 }
 
+@media (max-width: 768px) {
+    .fallback-nav a {
+        font-size: 1.75rem;
+    }
+}
+
 /* =========================
 RESPONSIVE
 ========================= */

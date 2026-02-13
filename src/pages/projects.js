@@ -91,7 +91,7 @@ showcase their Cosplays, create tutorials, do event planning, and follow other u
       descWrap.style.minHeight = `${h}px`;
 
       await renderTerminalBlock(descWrap, [
-        { tag: "p", text: project.desc, speed: 10 },
+        { tag: "p", text: project.desc, speed: 3 },
       ]);
       continue;
     }
@@ -127,7 +127,7 @@ showcase their Cosplays, create tutorials, do event planning, and follow other u
     descWrap.appendChild(p);
 
     await renderTerminalBlock(p, [
-      { tag: "span", text: project.desc.before, speed: 10 },
+      { tag: "span", text: project.desc.before, speed: 3 },
     ]);
 
     const link = document.createElement("a");
@@ -139,7 +139,7 @@ showcase their Cosplays, create tutorials, do event planning, and follow other u
 
     if (afterText) {
       await renderTerminalBlock(p, [
-        { tag: "span", text: afterText, speed: 10 },
+        { tag: "span", text: afterText, speed: 3 },
       ]);
     }
   }
