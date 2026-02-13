@@ -276,6 +276,14 @@ NAV (FALLBACK NAV)
   }
 }
 
+@media (max-width: 768px) {
+  .fallback-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+
 /* =========================
 RESPONSIVE
 ========================= */
