@@ -266,9 +266,14 @@ NAV (FALLBACK NAV)
 }
 
 @media (max-width: 768px) {
-    .fallback-nav a {
-        font-size: 1.5rem;
-    }
+  .fallback-nav {
+    gap: 0.5rem;
+  }
+
+  .fallback-nav a {
+    font-size: 1.1rem;
+    padding: 6px 8px;
+  }
 }
 
 /* =========================
