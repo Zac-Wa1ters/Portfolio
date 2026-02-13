@@ -247,7 +247,6 @@ NAV (FALLBACK NAV)
     left: 0;
     right: 0;
     display: flex;
-    justify-content: space-around;
     z-index: 1000;
     background: #001900cb;
 }
@@ -273,13 +272,13 @@ NAV (FALLBACK NAV)
     align-items: center;
     gap: 0.25rem;
     padding: 0.25rem 0.5rem;
-    overflow-x: auto;          /* prevents wrapping */
-    white-space: nowrap;       /* keeps single line */
+    overflow-x: auto;
+    white-space: nowrap;
   }
 
   .fallback-nav a {
-    font-size: 0.95rem;
-    padding: 4px 6px;
+    font-size: 0.8rem;
+    padding: 3px 4px;
   }
 
 }
