@@ -246,6 +246,7 @@ NAV (FALLBACK NAV)
     top: 0;
     left: 0;
     right: 0;
+    justify-content: space-around;
     display: flex;
     z-index: 1000;
     background: #001900cb;
