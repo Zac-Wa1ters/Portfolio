@@ -173,3 +173,4 @@ await Promise.all(
     renderProjectDescription(descriptionWrapper, project.desc)
   )
 );
+}
