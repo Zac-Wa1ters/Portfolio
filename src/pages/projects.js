@@ -1,4 +1,5 @@
 import { renderTerminalBlock } from "../components/terminalRender.js";
+import { setTyping, moveCursorTo } from "../components/cursor.js";
 
 function measureFinalHeight(descriptionWrapper, buildFinalNode) {
   const ghostElement = buildFinalNode();
@@ -166,9 +167,18 @@ all their needs were met. I helped with the logic and lay out the dataclasses as
     };
   });
 
-  await Promise.all(
-    projectRows.map(({ project, descriptionWrapper }) =>
-      renderProjectDescription(descriptionWrapper, project.desc)
-    )
-  );
+setTyping(true);
+
+await Promise.all(
+  projectRows.map(({ project, descriptionWrapper }) =>
+    renderProjectDescription(descriptionWrapper, project.desc)
+  )
+);
+
+setTyping(false);
+
+const terminalCursor = document.getElementById("terminal-cursor");
+
+if (terminalCursor) {
+  terminalCursor.style.display = "none";
 }
