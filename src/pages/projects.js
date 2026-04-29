@@ -28,14 +28,11 @@ export async function Projects(container) {
 
   const projects = [
     {
-      name: "Idno Simulator",
-      url: "https://github.com/Zac-Wa1ters/Idno-Care",
+      name: "The Youth Vineyard",
+      url: "https://theyouthvineyard.org",
       desc: {
         before:
-        `In this Python based project I worked on a team with two other
-people to program a game based taking care of little a fictional
-creature called an Idno. You named your Idno and had to make sure
-all their needs were met. I helped with the logic and lay out the dataclasses as well debugged. `,
+        `Served as Backend Engineer for The Youth Vineyard, collaborating with a development partner to design and build a full-stack web application. Led backend development and tech stack research, selecting and implementing Django, Wagtail CMS, and Snipcart. Developed features including program information management, a digital box office, and online merchandise sales.`,
         linkText: "View Screenshots.",
         linkUrl: "https://drive.google.com/drive/folders/1qJUH3TMjYAVpIcJX4Gjo9j2zhHJaWT0h?usp=sharing"
       }
@@ -63,6 +60,19 @@ showcase their Cosplays, create tutorials, do event planning, and follow other u
           "https://drive.google.com/drive/folders/11DZTk9VPKKVUiWTLr3RsGcWwE2czKQhP?usp=sharing",
         after: ".",
       },
+    },
+    {
+      name: "Idno Simulator",
+      url: "https://github.com/Zac-Wa1ters/Idno-Care",
+      desc: {
+        before:
+        `In this Python based project I worked on a team with two other
+people to program a game based taking care of little a fictional
+creature called an Idno. You named your Idno and had to make sure
+all their needs were met. I helped with the logic and lay out the dataclasses as well debugged. `,
+        linkText: "View Screenshots.",
+        linkUrl: "https://drive.google.com/drive/folders/1qJUH3TMjYAVpIcJX4Gjo9j2zhHJaWT0h?usp=sharing"
+      }
     },
   ];
 
