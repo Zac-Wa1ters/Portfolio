@@ -1,30 +1,102 @@
 import { renderTerminalBlock } from "../components/terminalRender.js";
 
-function measureFinalHeight(descWrap, buildFinalNode) {
-  const ghost = buildFinalNode();
-  ghost.style.position = "absolute";
-  ghost.style.visibility = "hidden";
-  ghost.style.pointerEvents = "none";
-  ghost.style.left = "-9999px";
-  ghost.style.top = "0";
+function measureFinalHeight(descriptionWrapper, buildFinalNode) {
+  const ghostElement = buildFinalNode();
 
-  const width =
-    descWrap.getBoundingClientRect().width || descWrap.clientWidth || 600;
-  ghost.style.width = `${width}px`;
+  ghostElement.style.position = "absolute";
+  ghostElement.style.visibility = "hidden";
+  ghostElement.style.pointerEvents = "none";
+  ghostElement.style.left = "-9999px";
+  ghostElement.style.top = "0";
 
-  document.body.appendChild(ghost);
-  const h = ghost.getBoundingClientRect().height;
-  ghost.remove();
+  const descriptionWidth =
+    descriptionWrapper.getBoundingClientRect().width ||
+    descriptionWrapper.clientWidth ||
+    600;
 
-  return h;
+  ghostElement.style.width = `${descriptionWidth}px`;
+
+  document.body.appendChild(ghostElement);
+
+  const finalHeight = ghostElement.getBoundingClientRect().height;
+
+  ghostElement.remove();
+
+  return finalHeight;
+}
+
+async function renderProjectDescription(descriptionWrapper, projectDescription) {
+  if (typeof projectDescription === "string") {
+    await renderTerminalBlock(descriptionWrapper, [
+      { tag: "p", text: projectDescription, speed: 3 },
+    ]);
+
+    return;
+  }
+
+  const afterText = projectDescription.after ?? "";
+  const paragraphElement = document.createElement("p");
+
+  descriptionWrapper.appendChild(paragraphElement);
+
+  await renderTerminalBlock(paragraphElement, [
+    { tag: "span", text: projectDescription.before, speed: 3 },
+  ]);
+
+  const linkElement = document.createElement("a");
+  linkElement.href = projectDescription.linkUrl;
+  linkElement.target = "_blank";
+  linkElement.rel = "noopener noreferrer";
+  linkElement.textContent = projectDescription.linkText;
+
+  paragraphElement.appendChild(linkElement);
+
+  if (afterText) {
+    await renderTerminalBlock(paragraphElement, [
+      { tag: "span", text: afterText, speed: 3 },
+    ]);
+  }
+}
+
+function reserveDescriptionHeight(descriptionWrapper, projectDescription) {
+  const finalHeight = measureFinalHeight(descriptionWrapper, () => {
+    const ghostDescriptionWrapper = document.createElement("div");
+    ghostDescriptionWrapper.className = "project_desc";
+
+    const paragraphElement = document.createElement("p");
+
+    if (typeof projectDescription === "string") {
+      paragraphElement.textContent = projectDescription;
+    } else {
+      paragraphElement.append(projectDescription.before);
+
+      const linkElement = document.createElement("a");
+      linkElement.href = projectDescription.linkUrl;
+      linkElement.target = "_blank";
+      linkElement.rel = "noopener noreferrer";
+      linkElement.textContent = projectDescription.linkText;
+
+      paragraphElement.append(linkElement);
+
+      if (projectDescription.after) {
+        paragraphElement.append(projectDescription.after);
+      }
+    }
+
+    ghostDescriptionWrapper.appendChild(paragraphElement);
+
+    return ghostDescriptionWrapper;
+  });
+
+  descriptionWrapper.style.minHeight = `${finalHeight}px`;
 }
 
 export async function Projects(container) {
   await renderTerminalBlock(container, [{ tag: "h1", text: "Projects" }]);
 
-  const wrapper = document.createElement("div");
-  wrapper.className = "projects_container";
-  container.appendChild(wrapper);
+  const projectsWrapper = document.createElement("div");
+  projectsWrapper.className = "projects_container";
+  container.appendChild(projectsWrapper);
 
   const projects = [
     {
@@ -32,10 +104,11 @@ export async function Projects(container) {
       url: "https://theyouthvineyard.org",
       desc: {
         before:
-        `Served as Backend Engineer for The Youth Vineyard, collaborating with a development partner to design and build a full-stack web application. Led backend development and tech stack research, selecting and implementing Django, Wagtail CMS, and Snipcart. Developed features including program information management, a digital box office, and online merchandise sales.`,
-        linkText: "View Screenshots.",
-        linkUrl: "https://drive.google.com/drive/folders/1qJUH3TMjYAVpIcJX4Gjo9j2zhHJaWT0h?usp=sharing"
-      }
+          "Served as Backend Engineer for The Youth Vineyard, collaborating with a development partner to design and build a full-stack web application. Led backend development and tech stack research, selecting and implementing Django, Wagtail CMS, and Snipcart. Developed features including program information management, a digital box office, and online merchandise sales.",
+        linkText: "View this website here.",
+        linkUrl:
+          "https://theyouthvineyard.org",
+      },
     },
     {
       name: "ShelfLife",
@@ -45,7 +118,6 @@ export async function Projects(container) {
           "ShelfLife is a group React project. We created a webapp using CRUD that allows users to create an account, search book titles via a public API, and add to their To Be Read(TBR) shelf. They can mark titles as finished and leave reviews for others to see. I programmed the API functions and debugged. ",
         linkText: "Demo the app here.",
         linkUrl: "https://evalynope.github.io/ShelfLife/",
-        // after is optional
       },
     },
     {
@@ -65,92 +137,38 @@ showcase their Cosplays, create tutorials, do event planning, and follow other u
       name: "Idno Simulator",
       url: "https://github.com/Zac-Wa1ters/Idno-Care",
       desc: {
-        before:
-        `In this Python based project I worked on a team with two other
+        before: `In this Python based project I worked on a team with two other
 people to program a game based taking care of little a fictional
 creature called an Idno. You named your Idno and had to make sure
 all their needs were met. I helped with the logic and lay out the dataclasses as well debugged. `,
         linkText: "View Screenshots.",
-        linkUrl: "https://drive.google.com/drive/folders/1qJUH3TMjYAVpIcJX4Gjo9j2zhHJaWT0h?usp=sharing"
-      }
+        linkUrl:
+          "https://drive.google.com/drive/folders/1qJUH3TMjYAVpIcJX4Gjo9j2zhHJaWT0h?usp=sharing",
+      },
     },
   ];
 
-  for (const project of projects) {
-    const name = document.createElement("div");
-    name.className = "project_name";
-    name.innerHTML = `<a href="${project.url}" target="_blank" rel="noopener noreferrer">${project.name}</a>`;
+  const projectRows = projects.map((project) => {
+    const projectNameElement = document.createElement("div");
+    projectNameElement.className = "project_name";
+    projectNameElement.innerHTML = `<a href="${project.url}" target="_blank" rel="noopener noreferrer">${project.name}</a>`;
 
-    const descWrap = document.createElement("div");
-    descWrap.className = "project_desc";
+    const descriptionWrapper = document.createElement("div");
+    descriptionWrapper.className = "project_desc";
 
-    // Append first so width is real
-    wrapper.append(name, descWrap);
+    projectsWrapper.append(projectNameElement, descriptionWrapper);
 
-    // ---- Case 1: string description ----
-    if (typeof project.desc === "string") {
-      const h = measureFinalHeight(descWrap, () => {
-        const d = document.createElement("div");
-        d.className = "project_desc";
-        const p = document.createElement("p");
-        p.textContent = project.desc;
-        d.appendChild(p);
-        return d;
-      });
+    reserveDescriptionHeight(descriptionWrapper, project.desc);
 
-      descWrap.style.minHeight = `${h}px`;
+    return {
+      project,
+      descriptionWrapper,
+    };
+  });
 
-      await renderTerminalBlock(descWrap, [
-        { tag: "p", text: project.desc, speed: 3 },
-      ]);
-      continue;
-    }
-
-    // ---- Case 2: object description with inline link + optional after ----
-    const afterText = project.desc.after ?? "";
-
-    // Reserve final height INCLUDING after text
-    const h = measureFinalHeight(descWrap, () => {
-      const d = document.createElement("div");
-      d.className = "project_desc";
-      const p = document.createElement("p");
-
-      p.append(project.desc.before);
-
-      const a = document.createElement("a");
-      a.href = project.desc.linkUrl;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      a.textContent = project.desc.linkText;
-
-      p.append(a);
-      if (afterText) p.append(afterText);
-
-      d.appendChild(p);
-      return d;
-    });
-
-    descWrap.style.minHeight = `${h}px`;
-
-    // Render typed + link + typed after
-    const p = document.createElement("p");
-    descWrap.appendChild(p);
-
-    await renderTerminalBlock(p, [
-      { tag: "span", text: project.desc.before, speed: 3 },
-    ]);
-
-    const link = document.createElement("a");
-    link.href = project.desc.linkUrl;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.textContent = project.desc.linkText;
-    p.appendChild(link);
-
-    if (afterText) {
-      await renderTerminalBlock(p, [
-        { tag: "span", text: afterText, speed: 3 },
-      ]);
-    }
-  }
+  await Promise.all(
+    projectRows.map(({ project, descriptionWrapper }) =>
+      renderProjectDescription(descriptionWrapper, project.desc)
+    )
+  );
 }
